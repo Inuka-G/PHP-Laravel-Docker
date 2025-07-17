@@ -1,4 +1,4 @@
-# 🐳 Laravel Docker Development Environment
+# 🐳 Laravel Docker Environment
 
 ![Laravel](https://img.shields.io/badge/laravel-%23FF2D20.svg?style=for-the-badge&logo=laravel&logoColor=white)
 ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
