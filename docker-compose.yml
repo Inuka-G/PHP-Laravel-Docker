@@ -1,6 +1,12 @@
+version: "3.8"
+
 services:
   server:
-    image: nginx:stable-alpine
+    # image: nginx:stable-alpine
+    # prod ready modification copy src to image instead of mirror bind mount
+    build:
+      context: .
+      dockerfile: dockerfiles/nginx.dockerfile
     ports:
       - 8000:80
     volumes:
@@ -12,8 +18,8 @@ services:
 
   php:
     build:
-      context: ./dockerfiles
-      dockerfile: php.dockerfile
+      context: .
+      dockerfile: dockerfiles/php.dockerfile
     volumes:
       - ./src:/var/www/html:delegated
 
@@ -32,8 +38,8 @@ services:
 
   artisan:
     build:
-      context: ./dockerfiles
-      dockerfile: php.dockerfile
+      context: .
+      dockerfile: dockerfiles/php.dockerfile
 
     volumes:
       - ./src:/var/www/html/
