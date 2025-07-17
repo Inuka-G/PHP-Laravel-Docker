@@ -13,12 +13,20 @@ services:
       context: ./dockerfiles
       dockerfile: php.dockerfile
     volumes:
-      - ./src:/var/www/html:delegated 
+      - ./src:/var/www/html:delegated
     # ports:
     #   - 3000:9000
-    # no need to expose port as in the same network mgt by docker compose 
-
+    # no need to expose port as in the same network mgt by docker compose
 
   mysql:
-    
+    image: mysql:5.7
+    env_file:
+      - ./env/mysql.env
 
+  composer:
+    build:
+      context: ./dockerfiles
+      dockerfile: composer.dockerfile
+
+    volumes:
+      - ./src:/var/www/html
