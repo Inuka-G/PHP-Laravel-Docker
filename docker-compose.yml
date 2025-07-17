@@ -9,4 +9,16 @@ services:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
 
   php:
+    build:
+      context: ./dockerfiles
+      dockerfile: php.dockerfile
+    volumes:
+      - ./src:/var/www/html:delegated 
+    # ports:
+    #   - 3000:9000
+    # no need to expose port as in the same network mgt by docker compose 
+
+
+  mysql:
     
+
